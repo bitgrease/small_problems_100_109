@@ -16,6 +16,12 @@
 
 def is_odd?(num)
   # could use the built-in Integer#odd? method but building my own for practice
-  return false if (num.abs % 2).zero?
-  true
+  num.abs % 2 == 1
+end
+
+
+# Alternate method with remainder
+
+def is_odd_rem?(num)
+  num.abs.remainder(2) == 1
 end
