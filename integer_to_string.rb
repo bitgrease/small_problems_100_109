@@ -8,3 +8,15 @@ def integer_to_string(integer)
   end
   number
 end
+
+# String operators that mutate without !
+# <<
+# concat
+# replace
+# 
+# Array operators that mutate without !
+# 
+# clear
+# push
+# concat
+# fill
