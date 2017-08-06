@@ -1,8 +1,8 @@
-require 'pry'
+MAX_DISPLAY_LENGTH = 76
 
 def print_in_box(str)
   size = 0
-  len = 76 if str.length > 76
+  len = MAX_DISPLAY_LENGTH if str.length > MAX_DISPLAY_LENGTH
   len ||= str.length + 2
   hr = "+" + "-" * len + "+"
   empty_line = "|" + ' ' *len + "|"
@@ -17,4 +17,4 @@ def print_in_box(str)
   puts hr  
 end
 
-print_in_box("This is the end of the world as we know it and I feel fine. Oh I feel fine, yes I feel fine. So fine.")
+print_in_box("This is the end of the world as we know it and I feel fine. Oh I feel fine, yes I feel fine. Yeah I feel fine. The other day I drifted continental divide. Milton Berstein.")
