@@ -7,3 +7,9 @@ def uppercase(str)
     end
   end
 end
+
+# and the right way
+
+def uppercase(str)
+  str == str.upcase
+end
