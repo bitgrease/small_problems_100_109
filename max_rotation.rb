@@ -1,30 +1,33 @@
 def rotate_array(array)
-  array.map.each_with_index do |el, idx|  
-    idx == array.size - 1 ? array.first : array[idx + 1]
-  end
+  array[1..-1] + [array[0]]
 end
 
-# better way
-def rotate_object_general(object)
-  case object.class.to_s
-  when 'String' then rotate_array(object.chars).join
-  when 'Array' then rotate_array(object)
-  when 'Integer' then rotate_array(object.to_s.chars).join.to_i
-  else
-    puts "Can't rotate!"
-  end
+def rotate_rightmost_digits(number, n)
+  all_digits = number.to_s.chars
+  all_digits[-n..-1] = rotate_array(all_digits[-n..-1])
+  all_digits.join.to_i
 end
 
 def max_rotations(number)
+  count = number.to_s.size
+  until count == 1
+    number = rotate_rightmost_digits(number, count)
+    count -= 1
+  end
+  number
+end
+
+# Further exploration
+
+def max_rotation(number)
   count = 0
-  rotated_number = ''
-  until count == number.size
-    if count.zero?
-      rotated_number = rotate_object_general(number)
-    else
-      rotated_number[count..-1] = rotate_object_general(rotated_number[count..-1])
-    end
+  string_array_number = number.to_s.chars
+  rotated_number_array = []
+  until count == string_array_number.size - 1
+    string_array_number[count..-1] = string_array_number[(count + 1)..-1] << string_array_number[count]
     count += 1
   end
-  rotated_number
+  string_array_number.join.to_i
 end
+
+p max_rotation(105)
