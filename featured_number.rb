@@ -22,11 +22,12 @@ def digits_repeat?(number)
 end
 
 def featured(number)
+
   loop do
     number += 1
     return number if (number.odd? && number % 7 == 0 && !digits_repeat?(number))
-    binding.pry
     break if number >= 9_876_543_210
   end
+  
   'There is no possible number that fulfills those requirements.'
 end
